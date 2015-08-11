@@ -45,7 +45,7 @@ describe( "createToken()" , function() {
 	it( "should create a token" , function() {
 		
 		var tokenStructure = [
-			{ key: 'creationTime' , type: 'timestamp' } ,
+			{ key: 'expirationTime' , type: 'timestamp' , length: 4 } ,
 			{ key: 'increment' , type: 'increment16' } ,
 			{ key: 'random' , type: 'random' , length: 3 } ,
 			{ key: 'duration' , type: 'uint' , length: 2 } ,
@@ -58,8 +58,8 @@ describe( "createToken()" , function() {
 			console.log( "\n###\nData:" , data ) ;
 			var token = gen.create( data ) ;
 			console.log( "Data after create():" , data ) ;
-			var extracted = gen.extract( token ) ;
 			console.log( "Token:" , token ) ;
+			var extracted = gen.extract( token ) ;
 			console.log( "Extracted:" , extracted ) ;
 			expect( extracted ).to.eql( data ) ;
 		} ;
