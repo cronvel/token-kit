@@ -1,6 +1,6 @@
 {
   "name": "token-kit",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A token creation toolkit.",
   "main": "lib/token-kit.js",
   "directories": {
