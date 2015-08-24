@@ -68,5 +68,32 @@ describe( "createToken()" , function() {
 		test( { duration: 600 , type: 'QS' } ) ;
 		test( { duration: 3600 , type: 'CK' } ) ;
 	} ) ;
+	
+	it( "should create a token²" , function() {
+		
+		var tokenStructure = [
+			{ key: 'expirationTime' , type: 'timestamp' , length: 4 } , // in seconds
+			{ key: 'userId' , type: 'hex' , length: 12 } ,  // MongoId: 12 bytes, 24 hex chars
+			{ key: 'agentId' , type: 'hex' , length: 5 } ,  // 10 hex chars
+			{ key: 'increment' , type: 'increment8' } ,   
+			{ key: 'type' , type: 'BASE36' , length: 2 }
+		] ;
+		
+		var gen = tokenKit( tokenStructure ) ;
+		
+		var test = function( data ) {
+			console.log( "\n###\nData:" , data ) ;
+			var token = gen.create( data ) ;
+			console.log( "Data after create():" , data ) ;
+			console.log( "Token:" , token ) ;
+			var extracted = gen.extract( token ) ;
+			console.log( "Extracted:" , extracted ) ;
+			expect( extracted ).to.eql( data ) ;
+		} ;
+		
+		test( { expirationTime: 300 , type: 'H' , userId: '0123456789abcdef01234567' , agentId: '0123456789' } ) ;
+		test( { expirationTime: 600 , type: 'QS' , userId: '0123456789abcdef01234567' , agentId: '0123456789' } ) ;
+		test( { expirationTime: 3600 , type: 'CK' , userId: '0123456789abcdef01234567' , agentId: '0123456789' } ) ;
+	} ) ;
 } ) ;
 
