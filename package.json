@@ -28,5 +28,20 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/cronvel/token-kit/issues"
+  },
+  "config": {
+    "tea-time": {
+      "coverDir": [
+        "lib"
+      ]
+    }
+  },
+  "copyright": {
+    "title": "Token Kit",
+    "years": [
+      2014,
+      2016
+    ],
+    "owner": "Cédric Ronvel"
   }
 }
