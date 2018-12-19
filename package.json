@@ -1,6 +1,6 @@
 {
   "name": "token-kit",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "A token creation toolkit.",
   "main": "lib/token-kit.js",
   "directories": {
@@ -9,13 +9,9 @@
   "dependencies": {
     "uint8-buffer-kit": "^0.1.5"
   },
-  "devDependencies": {
-    "expect.js": "^0.3.1",
-    "jshint": "^2.5.6",
-    "mocha": "^1.21.4"
-  },
+  "devDependencies": {},
   "scripts": {
-    "test": "mocha"
+    "test": "tea-time -R dot"
   },
   "repository": {
     "type": "git",
@@ -40,7 +36,7 @@
     "title": "Token Kit",
     "years": [
       2014,
-      2016
+      2018
     ],
     "owner": "Cédric Ronvel"
   }
